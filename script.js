@@ -37,14 +37,15 @@ const teamMembers = [
   },
 ];
 
-const cols = document.querySelectorAll(".col-4");
+const row = document.getElementById("team-row");
+let htmlContent = "";
 
-teamMembers.forEach((member, index) => {
-  if (index < cols.length) {
-    cols[index].innerHTML = `
+teamMembers.forEach((member) => {
+  htmlContent += `
+    <div class="col-4">
       <div class="card mb-3 text-white bg-dark">
-        <div class="row">
-          <div class="col-4">
+        <div class="row g-0">
+          <div class="col-md-4">
             <img src="${member.img}" class="img-fluid rounded-start" alt="${member.name}" />
           </div>
           <div class="col-md-8">
@@ -56,6 +57,8 @@ teamMembers.forEach((member, index) => {
           </div>
         </div>
       </div>
-    `;
-  }
+    </div>
+  `;
 });
+
+row.innerHTML = htmlContent;
